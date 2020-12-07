@@ -6,19 +6,14 @@ import processing.core.PApplet;
 public class Grid extends PApplet {
 
 
-    public int screenSize = 1000;
+    Brain brain = new Brain();
+
+
     public int r = 10;
-    public int[][] grid = new int[screenSize/r][screenSize/r];
+    public int[][] grid = new int[brain.getScreenSize()/r][brain.getScreenSize()/r];
 
 
-    public void settings(){
-        size(screenSize,screenSize);
-
-    }
-
-
-
-    public void draw(){
+    public void gridCreater(){
 
         for (int x = 0; x < grid.length; x++) {
             for (int y = 0; y < grid.length; y++) {
@@ -28,4 +23,8 @@ public class Grid extends PApplet {
             }
         }
     }
+
+
+
+
 }
