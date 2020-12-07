@@ -1,9 +1,20 @@
 package com.company;
 
-public class Main {
+import processing.core.PApplet;
+
+public class Main extends PApplet{
 
     public static void main(String[] args) {
-        
-	// write your code here
-    }
+
+
+        String[] processingArgs = {"MySketch"};
+        Grid grid = new Grid();
+        PApplet.runSketch(processingArgs, grid);
+
+
+
+	}
+
+
+
 }
