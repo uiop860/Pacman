@@ -1,20 +1,32 @@
 package com.company;
 
 import processing.core.PApplet;
+import processing.core.PGraphics;
 
 public class Brain extends PApplet {
 
-    static public int screenSize = 1000;
+//    PGraphics p;
+    public int screenSize = 1000;
+    public int r = 10;
+
 
     public void settings(){
         size(screenSize,screenSize);
 
     }
 
-    public void draw(){
-        Grid grid = new Grid();
-        grid.gridCreater();
+    public void setup(){
+        background(0);
 
+
+    }
+
+    public void draw(){
+
+        stroke(127);
+        rect(10,10,50,50);
+        Grid grid = new Grid(screenSize,r, this);
+        grid.gridCreator();
     }
 
 
@@ -24,7 +36,4 @@ public class Brain extends PApplet {
 
     /** getters and setters **/
 
-    public int getScreenSize() {
-        return screenSize;
-    }
 }
