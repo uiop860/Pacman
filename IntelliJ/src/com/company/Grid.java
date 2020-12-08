@@ -1,26 +1,32 @@
 package com.company;
 
 import processing.core.PApplet;
-import processing.core.PGraphics;
+import processing.core.PImage;
+
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 
 public class Grid extends PApplet {
 
     private int screenSize;
     private int r;
-    private int[][] grid = new int[21][21];
+    private int[][] grid = new int[19][21];
 
     private PApplet p;
+    PImage image;
 
-    public Grid(int screenSize, int r, PApplet p) {
+
+    public Grid(int screenSize, int r, PApplet p, PImage image) {
         this.screenSize = screenSize;
         this.r = r;
         this.p = p;
+        this.image = image;
     }
 
 
     public void gridCreator(){
-
-
         for (int x = 0; x < grid.length; x++) {
             for (int y = 0; y < grid.length; y++) {
                 grid[x][y] = 0;
@@ -28,12 +34,16 @@ public class Grid extends PApplet {
         }
     }
 
-    public void gridChanger(){
-        for (int x = 0; x < grid.length; x++) {
-            for (int y = 0; y < grid.length; y++) {
-                grid[x][20] = 1;
-                grid[x][0] = 1;
 
+
+    public void readImage() throws IOException{
+
+        for (int x = 0; x < 361; x+=37) {
+            for (int y = 0; y < 399; y+=37) {
+                if(image.get(x,y) == -16767233){
+
+                    grid[x/19][y/19] = 1;
+                }
             }
         }
     }
@@ -41,7 +51,7 @@ public class Grid extends PApplet {
 
 
     public void gridPopulator(){
-        p.stroke(255);
+//        p.stroke(255);
         for (int x = 0; x < grid.length; x++) {
             for (int y = 0; y < grid.length; y++) {
                 if (grid[x][y] == 0){
