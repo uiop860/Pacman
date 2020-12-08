@@ -6,12 +6,13 @@ import processing.core.PGraphics;
 public class Brain extends PApplet {
 
 //    PGraphics p;
-    public int screenSize = 1000;
-    public int r = 10;
+    public int screenSizeX = 800;
+    public int screenSizeY = 800;
+    public int r = 38;
 
 
     public void settings(){
-        size(screenSize,screenSize);
+        size(screenSizeX,screenSizeY);
 
     }
 
@@ -23,10 +24,10 @@ public class Brain extends PApplet {
 
     public void draw(){
 
-        stroke(127);
-        rect(10,10,50,50);
-        Grid grid = new Grid(screenSize,r, this);
+        Grid grid = new Grid(screenSizeX,r, this);
         grid.gridCreator();
+        grid.gridChanger();
+        grid.gridPopulator();
     }
 
 

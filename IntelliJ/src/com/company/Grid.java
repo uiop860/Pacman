@@ -7,6 +7,7 @@ public class Grid extends PApplet {
 
     private int screenSize;
     private int r;
+    private int[][] grid = new int[21][21];
 
     private PApplet p;
 
@@ -18,14 +19,38 @@ public class Grid extends PApplet {
 
 
     public void gridCreator(){
-        int tempInt = screenSize/r;
-        int[][] grid = new int[tempInt][tempInt];
+
 
         for (int x = 0; x < grid.length; x++) {
             for (int y = 0; y < grid.length; y++) {
                 grid[x][y] = 0;
-                p.rect(x*r,y*r,r,r);
+            }
+        }
+    }
 
+    public void gridChanger(){
+        for (int x = 0; x < grid.length; x++) {
+            for (int y = 0; y < grid.length; y++) {
+                grid[x][20] = 1;
+                grid[x][0] = 1;
+
+            }
+        }
+    }
+
+
+
+    public void gridPopulator(){
+        p.stroke(255);
+        for (int x = 0; x < grid.length; x++) {
+            for (int y = 0; y < grid.length; y++) {
+                if (grid[x][y] == 0){
+                    p.fill(0,0,0);
+                }
+                else {
+                    p.fill(0,51,204);
+                }
+                p.rect(x*r,y*r,r,r);
             }
         }
     }
