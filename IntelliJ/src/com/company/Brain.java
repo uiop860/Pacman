@@ -11,8 +11,6 @@ public class Brain extends PApplet {
     public int r = 38;
     Grid grid = new Grid(screenSizeX,screenSizeY,r,this);
     Player p1 = new Player(this);
-    Controls controls = new Controls(this);
-
 
 
     public void settings(){
@@ -28,7 +26,7 @@ public class Brain extends PApplet {
     public void draw(){
         grid.gridPopulator();
         p1.renderPlayer();
-        p1.playerMovement();
+
     }
 
     public void mousePressed(){
@@ -41,15 +39,6 @@ public class Brain extends PApplet {
             grid.saveMap();
         }*/
 
-
     }
-
-
-    public void keyReleased(){
-
-
-    }
-
-
 
 }
