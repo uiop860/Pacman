@@ -1,62 +1,44 @@
 package com.company;
 
 import processing.core.PApplet;
-import processing.core.PGraphics;
-import processing.core.PImage;
 
-import java.io.IOException;
 
 public class Brain extends PApplet {
 
-//    PGraphics p;
+
     public int screenSizeX = 722;
-    public int screenSizeY = 797;
+    public int screenSizeY = 798;
     public int r = 38;
-    PImage image;
-    Grid grid;
+    Grid grid = new Grid(screenSizeX,screenSizeY,r,this);
+    Player p1 = new Player(this);
 
 
     public void settings(){
         size(screenSizeX,screenSizeY);
-
     }
 
     public void setup(){
-
-
-        image = loadImage("C:\\Users\\olive\\Documents\\GitHub\\Pacman\\IntelliJ\\src\\pacmap.png");
-        grid = new Grid(screenSizeX,r, this,image);
-
         grid.gridCreator();
-
-        try {
-            grid.readImage();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
+        grid.loadMap();
 
     }
 
     public void draw(){
-
-
-
-
         grid.gridPopulator();
-
-
-
-        // image(image,0,0);
-
+        p1.renderPlayer();
 
     }
 
+    public void mousePressed(){
 
+        // grid.mousePosPainter();
+    }
 
+    public void keyPressed(){
+        /*if(key == 'U' || key == 'u'){
+            grid.saveMap();
+        }*/
 
-
-
-    /** getters and setters **/
+    }
 
 }
