@@ -27,7 +27,7 @@ public class Brain extends PApplet {
 
     public void draw(){
         grid.gridPopulator();
-       // p1.renderPlayer();
+        //p1.renderPlayer();
         p1.playerMovement();
     }
 

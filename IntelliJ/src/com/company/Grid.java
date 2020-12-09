@@ -1,9 +1,8 @@
 package com.company;
 
 import processing.core.PApplet;
-
 import java.io.*;
-import java.util.Scanner;
+
 
 public class Grid extends PApplet {
 
@@ -40,11 +39,10 @@ public class Grid extends PApplet {
         int mouseXPos = p.mouseX;
         int mouseYPos = p.mouseY;
 
-
         outLoop:
         for (int x = r; x < screenSizeX; x += r) {
             for (int y = r; y < screenSizeY; y += r) {
-                    // top left square
+                // top left square
                 if (mouseXPos < r & mouseYPos < r) {
                     if(grid[0][0] == blueBox) {
                         grid[0][0] = blackBox;
@@ -126,7 +124,6 @@ public class Grid extends PApplet {
         }
     }
 
-
     public void gridPopulator() {
 
         p.noStroke();
@@ -151,50 +148,41 @@ public class Grid extends PApplet {
                     p.fill(0, 51, 204);
                     p.rect(x * r, y * r, r, r);
                 }
-
             }
         }
     }
 
     public void loadMap() {
-
-
         String line = "";
         try {
             BufferedReader reader = new BufferedReader( new FileReader("C:\\Users\\olive\\Documents\\GitHub\\Pacman\\IntelliJ\\Pepemap.txt"));
-                for (int i = 0; i < grid[0].length; i++) {
-                    if ((line = reader.readLine()) != null) {
-                        for (int j = 0; j < grid.length; j++) {
-                            String[] numbers = line.split(",");
-                            int num = Integer.parseInt(numbers[j]);
-                            grid[j][i] = num;
-                        }
+            for (int i = 0; i < grid[0].length; i++) {
+                if ((line = reader.readLine()) != null) {
+                    for (int j = 0; j < grid.length; j++) {
+                        String[] numbers = line.split(",");
+                        int num = Integer.parseInt(numbers[j]);
+                        grid[j][i] = num;
                     }
                 }
-
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
+    public void saveMap () {
+        try {
+            FileWriter fileWriter = new FileWriter("C:\\Users\\olive\\Documents\\GitHub\\Pacman\\IntelliJ\\Pepemap.txt");
 
-        public void saveMap () {
-            try {
-                FileWriter fileWriter = new FileWriter("C:\\Users\\olive\\Documents\\GitHub\\Pacman\\IntelliJ\\Pepemap.txt");
-
-
-                for (int i = 0; i < grid[0].length; i++) {
-                    for (int j = 0; j < grid.length; j++) {
-                        fileWriter.write(grid[j][i] + ",");
-                    }
-                    fileWriter.write("\n");
+            for (int i = 0; i < grid[0].length; i++) {
+                for (int j = 0; j < grid.length; j++) {
+                    fileWriter.write(grid[j][i] + ",");
                 }
-                fileWriter.close();
-            } catch (IOException e) {
-                e.printStackTrace();
+                fileWriter.write("\n");
             }
+            fileWriter.close();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-
-
-
+    }
 }
