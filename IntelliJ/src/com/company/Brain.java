@@ -27,29 +27,22 @@ public class Brain extends PApplet {
 
     public void draw(){
         grid.gridPopulator();
-        p1.renderPlayer();
+       // p1.renderPlayer();
         p1.playerMovement();
     }
 
     public void mousePressed(){
 
-        // grid.mousePosPainter();
+        grid.mousePosPainter();
     }
 
     public void keyPressed(){
-        /*if(key == 'U' || key == 'u'){
+        if(key == 'U' || key == 'u'){
             grid.saveMap();
-        }*/
-
-
+        }
     }
 
 
     public void keyReleased(){
-
-
     }
-
-
-
 }
