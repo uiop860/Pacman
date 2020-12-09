@@ -24,7 +24,7 @@ public class Brain extends PApplet {
     public void setup(){
 
 
-        image = loadImage("C:\\Users\\olive\\Documents\\GitHub\\Pacman\\IntelliJ\\src\\pacmap.png");
+        image = loadImage("C:\\Users\\Lukas\\Documents\\GitHub\\Pacman\\IntelliJ\\src\\pacmap.png");
         grid = new Grid(screenSizeX,r, this,image);
 
         grid.gridCreator();

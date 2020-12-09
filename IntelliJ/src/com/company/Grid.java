@@ -38,11 +38,11 @@ public class Grid extends PApplet {
 
     public void readImage() throws IOException{
 
-        for (int x = 0; x < 361; x+=37) {
-            for (int y = 0; y < 399; y+=37) {
+        for (int x = 0; x < 722; x+=18) {
+            for (int y = 0; y < 798; y+=18) {
                 if(image.get(x,y) == -16767233){
 
-                    grid[x/19][y/19] = 1;
+                    grid[x/38][y/42] = 1;
                 }
             }
         }
