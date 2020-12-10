@@ -11,6 +11,7 @@ public class Brain extends PApplet {
     public int r = 38;
     Grid grid = new Grid(screenSizeX,screenSizeY,r,this);
     Player p1 = new Player(this);
+    Enemy red = new Enemy(this);
 
 
 
@@ -28,6 +29,7 @@ public class Brain extends PApplet {
         grid.gridPopulator();
         p1.renderPlayer();
         p1.playerMovement();
+        red.drawRed();
     }
 
     public void mousePressed(){

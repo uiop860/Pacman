@@ -7,17 +7,17 @@ public class Entity
     private int playerXPos = 300;
     private int playerYPos = 300;
 
-    private int enemyOneXPos = 361;
-    private int enemyOneYPos = 378;
+    private int enemyRedXPos = 361;
+    private int enemyRedYPos = 378;
 
-    private int enemyTwoXPos = 361;
-    private int enemyTwoYPos = 378;
+    private int enemyBlueXPos = 361;
+    private int enemyBlueYPos = 378;
 
-    private int enemyThreeXPos = 361;
-    private int enemyThreeYPos = 378;
+    private int enemyGreenXPos = 361;
+    private int enemyGreenYPos = 378;
 
-    private int enemyFourXPos = 361;
-    private int enemyFourYPos = 378;
+    private int enemyPinkXPos = 361;
+    private int enemyPinkYPos = 378;
 
 
 
@@ -45,83 +45,83 @@ public class Entity
     }
 
 
-    public int getEnemyOneXPos()
+    public int getEnemyRedXPos()
     {
-        return enemyOneXPos;
+        return enemyRedXPos;
     }
 
-    public void setEnemyOneXPos(int enemyOneXPos)
+    public void setEnemyRedXPos(int enemyRedXPos)
     {
-        this.enemyOneXPos = enemyOneXPos;
+        this.enemyRedXPos = enemyRedXPos;
     }
 
-    public int getEnemyOneYPos()
+    public int getEnemyRedYPos()
     {
-        return enemyOneYPos;
+        return enemyRedYPos;
     }
 
-    public void setEnemyOneYPos(int enemyOneYPos)
+    public void setEnemyRedYPos(int enemyRedYPos)
     {
-        this.enemyOneYPos = enemyOneYPos;
+        this.enemyRedYPos = enemyRedYPos;
     }
 
-    public int getEnemyTwoXPos()
+    public int getEnemyBlueXPos()
     {
-        return enemyTwoXPos;
+        return enemyBlueXPos;
     }
 
-    public void setEnemyTwoXPos(int enemyTwoXPos)
+    public void setEnemyBlueXPos(int enemyBlueXPos)
     {
-        this.enemyTwoXPos = enemyTwoXPos;
+        this.enemyBlueXPos = enemyBlueXPos;
     }
 
-    public int getEnemyTwoYPos()
+    public int getEnemyBlueYPos()
     {
-        return enemyTwoYPos;
+        return enemyBlueYPos;
     }
 
-    public void setEnemyTwoYPos(int enemyTwoYPos)
+    public void setEnemyBlueYPos(int enemyBlueYPos)
     {
-        this.enemyTwoYPos = enemyTwoYPos;
+        this.enemyBlueYPos = enemyBlueYPos;
     }
 
-    public int getEnemyThreeXPos()
+    public int getEnemyGreenXPos()
     {
-        return enemyThreeXPos;
+        return enemyGreenXPos;
     }
 
-    public void setEnemyThreeXPos(int enemyThreeXPos)
+    public void setEnemyGreenXPos(int enemyGreenXPos)
     {
-        this.enemyThreeXPos = enemyThreeXPos;
+        this.enemyGreenXPos = enemyGreenXPos;
     }
 
-    public int getEnemyThreeYPos()
+    public int getEnemyGreenYPos()
     {
-        return enemyThreeYPos;
+        return enemyGreenYPos;
     }
 
-    public void setEnemyThreeYPos(int enemyThreeYPos)
+    public void setEnemyGreenYPos(int enemyGreenYPos)
     {
-        this.enemyThreeYPos = enemyThreeYPos;
+        this.enemyGreenYPos = enemyGreenYPos;
     }
 
-    public int getEnemyFourXPos()
+    public int getEnemyPinkXPos()
     {
-        return enemyFourXPos;
+        return enemyPinkXPos;
     }
 
-    public void setEnemyFourXPos(int enemyFourXPos)
+    public void setEnemyPinkXPos(int enemyPinkXPos)
     {
-        this.enemyFourXPos = enemyFourXPos;
+        this.enemyPinkXPos = enemyPinkXPos;
     }
 
-    public int getEnemyFourYPos()
+    public int getEnemyPinkYPos()
     {
-        return enemyFourYPos;
+        return enemyPinkYPos;
     }
 
-    public void setEnemyFourYPos(int enemyFourYPos)
+    public void setEnemyPinkYPos(int enemyPinkYPos)
     {
-        this.enemyFourYPos = enemyFourYPos;
+        this.enemyPinkYPos = enemyPinkYPos;
     }
 }
