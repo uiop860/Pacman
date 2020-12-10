@@ -12,9 +12,6 @@ public class Brain extends PApplet {
     Grid grid = new Grid(screenSizeX,screenSizeY,r,this);
     Player p1 = new Player(this);
 
-
-
-
     public void settings(){
         size(screenSizeX,screenSizeY);
     }

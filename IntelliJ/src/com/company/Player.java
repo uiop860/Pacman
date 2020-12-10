@@ -2,7 +2,7 @@ package com.company;
 
 import processing.core.PApplet;
 
-import static java.awt.event.KeyEvent.*;
+        import static java.awt.event.KeyEvent.*;
 
 public class Player {
 
