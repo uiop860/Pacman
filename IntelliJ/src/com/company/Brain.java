@@ -11,7 +11,6 @@ public class Brain extends PApplet {
     public int r = 38;
     Grid grid = new Grid(screenSizeX,screenSizeY,r,this);
     Player p1 = new Player(this);
-    Controls controls = new Controls(this);
 
 
 

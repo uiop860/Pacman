@@ -155,7 +155,7 @@ public class Grid extends PApplet {
     public void loadMap() {
         String line = "";
         try {
-            BufferedReader reader = new BufferedReader( new FileReader("C:\\Users\\olive\\Documents\\GitHub\\Pacman\\IntelliJ\\Pepemap.txt"));
+            BufferedReader reader = new BufferedReader( new FileReader("IntelliJ/src/Pepemap.txt"));
             for (int i = 0; i < grid[0].length; i++) {
                 if ((line = reader.readLine()) != null) {
                     for (int j = 0; j < grid.length; j++) {
@@ -172,7 +172,7 @@ public class Grid extends PApplet {
 
     public void saveMap () {
         try {
-            FileWriter fileWriter = new FileWriter("C:\\Users\\olive\\Documents\\GitHub\\Pacman\\IntelliJ\\Pepemap.txt");
+            FileWriter fileWriter = new FileWriter("IntelliJ/src/Pepemap.txt");
 
             for (int i = 0; i < grid[0].length; i++) {
                 for (int j = 0; j < grid.length; j++) {
