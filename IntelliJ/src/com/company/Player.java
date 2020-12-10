@@ -2,50 +2,65 @@ package com.company;
 
 import processing.core.PApplet;
 
+import static java.awt.event.KeyEvent.*;
+
 public class Player {
 
     PApplet p;
-    Controls controls = new Controls(p);
-    public int p1XPos = 58;
-    public int p1YPos = 58;
+    public int p1XPos = 361;
+    public int p1YPos = 378;
+    int direction = 1;
+    int direction2 = 0;
+    int x = 0;
 
 
     public Player(PApplet p) {
         this.p = p;
     }
 
-    public void renderPlayer(){
-        p.fill(255,255,0);
-        p.arc(p1XPos, p1YPos, 36, 36, 1,6,3);
+    public void renderPlayer() {
+        p.shapeMode(p.CENTER);
+        p.fill(255, 255, 0);
+        renderP1();
     }
 
-    public void playerMovement(){
-
-        int x = 0;
-
-        if(controls.rightKeyDown()){
+    //CONTROLS
+    public void playerMovement() {
+        if (p.keyCode == VK_RIGHT) {
             x = 1;
-        }else if(controls.leftKeyDown()){
+        } else if (p.keyCode == VK_LEFT) {
             x = 2;
-        }else if (controls.downKeyDown()){
+        } else if (p.keyCode == VK_UP) {
             x = 3;
-        }else if (controls.upKeyDown()){
+        } else if (p.keyCode == VK_DOWN) {
             x = 4;
         }
 
-
         switch (x) {
             case 1:
+                //right
                 p1XPos++;
+                direction = 1;
+                direction2 = 0;
                 break;
             case 2:
+                //left
                 p1XPos--;
+                direction = -1;
+                direction2 = 0;
                 break;
+
             case 3:
-                p1YPos++;
+                //up
+                p1YPos--;
+                direction = 0;
+                direction2 = -1;
                 break;
             case 4:
-                p1YPos--;
+                //down
+                p1YPos++;
+                direction = 0;
+                direction2 = 1;
                 break;
             default:
                 x = 0;
@@ -53,7 +68,27 @@ public class Player {
         }
     }
 
-
-
-
+    public void renderP1() {
+        for (int i = -1; i < 2; i++) {
+            for (int j = -1; j < 2; j++) {
+                p.fill(255,255,0);
+                p.pushMatrix();
+                p.translate(p1XPos + (i * 722), p1YPos + (j * 798));
+                if (direction == -1) {
+                    p.rotate(p.PI);
+                }
+                if (direction2 == 1) {
+                    p.rotate(p.HALF_PI);
+                }
+                if (direction2 == -1) {
+                    p.rotate(p.PI + p.HALF_PI);
+                }
+                p.arc(0, 0, 36, 36, p.radians(45), p.radians(315), 3);
+                p.popMatrix();
+            }
+        }
+    }
 }
+
+
+
