@@ -10,13 +10,13 @@ public class Entity
     private int enemyRedXPos = 361;
     private int enemyRedYPos = 378;
 
-    private int enemyBlueXPos = 361;
+    private int enemyBlueXPos = 321;
     private int enemyBlueYPos = 378;
 
-    private int enemyGreenXPos = 361;
+    private int enemyGreenXPos = 281;
     private int enemyGreenYPos = 378;
 
-    private int enemyPinkXPos = 361;
+    private int enemyPinkXPos = 401;
     private int enemyPinkYPos = 378;
 
 

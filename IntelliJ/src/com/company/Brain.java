@@ -12,6 +12,9 @@ public class Brain extends PApplet {
     Grid grid = new Grid(screenSizeX,screenSizeY,r,this);
     Player p1 = new Player(this);
     Enemy red = new Enemy(this);
+    Enemy blue = new Enemy(this);
+    Enemy green = new Enemy(this);
+    Enemy pink = new Enemy(this);
 
 
 
@@ -30,6 +33,9 @@ public class Brain extends PApplet {
         p1.renderPlayer();
         p1.playerMovement();
         red.drawRed();
+        blue.drawBlue();
+        green.drawGreen();
+        pink.drawPink();
     }
 
     public void mousePressed(){
