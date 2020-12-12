@@ -4,23 +4,20 @@ public class Entity
 {
 
 
-    private int playerXPos = 300;
-    private int playerYPos = 300;
+    private int playerXPos=380;
+    private int playerYPos=500;
 
-    private int enemyRedXPos = 361;
-    private int enemyRedYPos = 378;
+    private int enemyRedXPos = 661;
+    private int enemyRedYPos = 78;
 
-    private int enemyBlueXPos = 321;
-    private int enemyBlueYPos = 378;
+    private int enemyBlueXPos = 421;
+    private int enemyBlueYPos = 178;
 
-    private int enemyGreenXPos = 281;
-    private int enemyGreenYPos = 378;
+    private int enemyGreenXPos = 581;
+    private int enemyGreenYPos = 278;
 
-    private int enemyPinkXPos = 401;
-    private int enemyPinkYPos = 378;
-
-
-
+    private int enemyPinkXPos = 501;
+    private int enemyPinkYPos = 678;
 
 
 
@@ -120,8 +117,7 @@ public class Entity
         return enemyPinkYPos;
     }
 
-    public void setEnemyPinkYPos(int enemyPinkYPos)
-    {
+    public void setEnemyPinkYPos(int enemyPinkYPos) {
         this.enemyPinkYPos = enemyPinkYPos;
     }
 }

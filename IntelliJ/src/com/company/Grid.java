@@ -10,8 +10,10 @@ public class Grid extends PApplet {
     private int screenSizeY;
     private int r;
     private PApplet p;
+    public static int gridX =19;
+    public static int gridY =21;
 
-    private int[][] grid = new int[19][21];
+    private int[][] grid = new int[gridX][gridY];
 
     public Grid(int screenSizeX, int screenSizeY, int r, PApplet p) {
         this.screenSizeX = screenSizeX;
@@ -155,7 +157,7 @@ public class Grid extends PApplet {
     public void loadMap() {
         String line = "";
         try {
-            BufferedReader reader = new BufferedReader( new FileReader("IntelliJ/src/Pepemap.txt"));
+            BufferedReader reader = new BufferedReader( new FileReader("C:\\Users\\Lukas\\Documents\\GitHub\\Pacman\\IntelliJ\\src\\Pepemap.txt"));
             for (int i = 0; i < grid[0].length; i++) {
                 if ((line = reader.readLine()) != null) {
                     for (int j = 0; j < grid.length; j++) {
@@ -172,7 +174,7 @@ public class Grid extends PApplet {
 
     public void saveMap () {
         try {
-            FileWriter fileWriter = new FileWriter("IntelliJ/src/Pepemap.txt");
+            FileWriter fileWriter = new FileWriter("C:\\Users\\Lukas\\Documents\\GitHub\\Pacman\\IntelliJ\\src\\pPepemap.txt");
 
             for (int i = 0; i < grid[0].length; i++) {
                 for (int j = 0; j < grid.length; j++) {

@@ -36,6 +36,27 @@ public class Brain extends PApplet {
         blue.drawBlue();
         green.drawGreen();
         pink.drawPink();
+
+        if (p1.playerGetBounds().intersects(pink.pinkEnemyGetBounds()))
+        {
+            System.out.println("intersection player pink");
+        }
+
+        if (p1.playerGetBounds().intersects(blue.blueEnemyGetBounds()))
+        {
+            System.out.println("intersection player blue");
+        }
+
+        if (p1.playerGetBounds().intersects(green.greenEnemyGetBounds()))
+        {
+            System.out.println("intersection player green");
+        }
+
+        if (p1.playerGetBounds().intersects(red.redEnemyGetBounds()))
+        {
+            System.out.println("intersection player red");
+        }
+
     }
 
     public void mousePressed(){
@@ -48,8 +69,6 @@ public class Brain extends PApplet {
             grid.saveMap();
         }*/
     }
-
-
     public void keyReleased(){
     }
 }

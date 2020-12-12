@@ -1,27 +1,39 @@
 package com.company;
 
+import javafx.scene.shape.Circle;
 import processing.core.PApplet;
+
+import java.awt.*;
 
 import static java.awt.event.KeyEvent.*;
 
 public class Player extends Entity{
 
     PApplet p;
-    public int p1XPos = getPlayerXPos();
-    public int p1YPos = getPlayerYPos();
+    public int playerX=getPlayerXPos();
+    public int playerY=getPlayerYPos();;
     int direction = 1;
     int direction2 = 0;
     int x = 0;
-
+    int moveX = 0;
+    int moveY = 0;
 
     public Player(PApplet p) {
         this.p = p;
     }
 
     public void renderPlayer() {
+        Grid grid = new Grid(722,798,38,this.p);
+        grid.loadMap();
         p.shapeMode(p.CENTER);
         p.fill(255, 255, 0);
         renderP1();
+    }
+
+    public void move()
+    {
+    playerX+=moveX;
+    playerY+=moveY;
     }
 
     //CONTROLS
@@ -39,26 +51,26 @@ public class Player extends Entity{
         switch (x) {
             case 1:
                 //right
-                setPlayerXPos(p1XPos++);
+                setPlayerXPos(playerX++);
                 direction = 1;
                 direction2 = 0;
                 break;
             case 2:
                 //left
-                setPlayerXPos(p1XPos--);
+                setPlayerXPos(playerX--);
                 direction = -1;
                 direction2 = 0;
                 break;
 
             case 3:
                 //up
-                setPlayerYPos(p1YPos--);
+                setPlayerYPos(playerY--);
                 direction = 0;
                 direction2 = -1;
                 break;
             case 4:
                 //down
-                setPlayerYPos(p1YPos++);
+                setPlayerYPos(playerY++);
                 direction = 0;
                 direction2 = 1;
                 break;
@@ -87,6 +99,14 @@ public class Player extends Entity{
                 p.popMatrix();
             }
         }
+    }
+
+    public Rectangle playerGetBounds()
+    {
+        Rectangle playerRect = new Rectangle();
+        playerRect.setLocation(getPlayerXPos(),getPlayerYPos());
+        playerRect.setSize(34,42);
+        return playerRect;
     }
 }
 
