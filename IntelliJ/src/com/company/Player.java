@@ -2,13 +2,13 @@ package com.company;
 
 import processing.core.PApplet;
 
-        import static java.awt.event.KeyEvent.*;
+import static java.awt.event.KeyEvent.*;
 
-public class Player {
+public class Player extends Entity{
 
     PApplet p;
-    public int p1XPos = 361;
-    public int p1YPos = 378;
+    public int p1XPos = getPlayerXPos();
+    public int p1YPos = getPlayerYPos();
     int direction = 1;
     int direction2 = 0;
     int x = 0;
@@ -39,26 +39,26 @@ public class Player {
         switch (x) {
             case 1:
                 //right
-                p1XPos++;
+                setPlayerXPos(p1XPos++);
                 direction = 1;
                 direction2 = 0;
                 break;
             case 2:
                 //left
-                p1XPos--;
+                setPlayerXPos(p1XPos--);
                 direction = -1;
                 direction2 = 0;
                 break;
 
             case 3:
                 //up
-                p1YPos--;
+                setPlayerYPos(p1YPos--);
                 direction = 0;
                 direction2 = -1;
                 break;
             case 4:
                 //down
-                p1YPos++;
+                setPlayerYPos(p1YPos++);
                 direction = 0;
                 direction2 = 1;
                 break;
@@ -73,7 +73,7 @@ public class Player {
             for (int j = -1; j < 2; j++) {
                 p.fill(255,255,0);
                 p.pushMatrix();
-                p.translate(p1XPos + (i * 722), p1YPos + (j * 798));
+                p.translate(getPlayerXPos() + (i * 722), getPlayerYPos() + (j * 798));
                 if (direction == -1) {
                     p.rotate(p.PI);
                 }
