@@ -97,7 +97,7 @@ public class Player extends Entity{
             Grid.grid[playerGridPositionX][playerGridPositionY] = 0;
             points++;
         } else if(Grid.grid[playerGridPositionX][playerGridPositionY] == 3){
-            
+
             Grid.grid[playerGridPositionX][playerGridPositionY] = 0;
 
         }
