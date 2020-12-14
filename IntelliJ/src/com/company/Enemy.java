@@ -27,25 +27,25 @@ public class Enemy extends Entity
 
     public void drawGreen()
     {
-        red = p.loadImage("C:\\Users\\Lukas\\Documents\\GitHub\\Pacman\\IntelliJ\\src\\green.png");
+        red = p.loadImage("C:\\Users\\Olive\\Documents\\GitHub\\Pacman\\IntelliJ\\src\\green.png");
         p.image(red,getEnemyGreenXPos(),getEnemyGreenYPos());
     }
 
     public void drawPink()
     {
-        red = p.loadImage("C:\\Users\\Lukas\\Documents\\GitHub\\Pacman\\IntelliJ\\src\\pink.png");
+        red = p.loadImage("C:\\Users\\Olive\\Documents\\GitHub\\Pacman\\IntelliJ\\src\\pink.png");
         p.image(red,getEnemyPinkXPos(),getEnemyPinkYPos());
     }
 
     public void drawBlue()
     {
-        red = p.loadImage("C:\\Users\\Lukas\\Documents\\GitHub\\Pacman\\IntelliJ\\src\\blue.png");
+        red = p.loadImage("C:\\Users\\Olive\\Documents\\GitHub\\Pacman\\IntelliJ\\src\\blue.png");
         p.image(red,getEnemyBlueXPos(),getEnemyBlueYPos());
     }
 
     public void drawRed()
     {
-        red = p.loadImage("C:\\Users\\Lukas\\Documents\\GitHub\\Pacman\\IntelliJ\\src\\red.png");
+        red = p.loadImage("C:\\Users\\Olive\\Documents\\GitHub\\Pacman\\IntelliJ\\src\\red.png");
         p.image(red,getEnemyRedXPos(),getEnemyRedYPos());
     }
 
