@@ -2,13 +2,16 @@ package com.company;
 
 import processing.core.PApplet;
 
+import static java.awt.event.KeyEvent.*;
+import static java.awt.event.KeyEvent.VK_LEFT;
+
 
 public class Brain extends PApplet {
 
 
     public int screenSizeX = 722;
     public int screenSizeY = 798;
-    public int r = 38;
+    static int r = 38;
     Grid grid = new Grid(screenSizeX,screenSizeY,r,this);
     Player p1 = new Player(this);
     Enemy red = new Enemy(this);
@@ -25,12 +28,16 @@ public class Brain extends PApplet {
     public void setup(){
         grid.gridCreator();
         grid.loadMap();
+        p1.checkPlayerPosition();
+        frameRate(60);
 
     }
 
     public void draw(){
         grid.gridPopulator();
         p1.renderPlayer();
+        p1.checkIfPlayerIsOnFood();
+        p1.checkPlayerPosition();
         p1.playerMovement();
         red.drawRed();
         blue.drawBlue();
@@ -68,7 +75,34 @@ public class Brain extends PApplet {
        /* if(key == 'U' || key == 'u'){
             grid.saveMap();
         }*/
+
+        if (keyCode == VK_UP) {
+            p1.setMoveUp(true);
+            p1.setMoveDown(false);
+            p1.setMoveRight(false);
+            p1.setMoveLeft(false);
+
+        } else if (keyCode == VK_DOWN) {
+            p1.setMoveUp(false);
+            p1.setMoveDown(true);
+            p1.setMoveRight(false);
+            p1.setMoveLeft(false);
+
+        } else if (keyCode == VK_RIGHT) {
+            p1.setMoveUp(false);
+            p1.setMoveDown(false);
+            p1.setMoveRight(true);
+            p1.setMoveLeft(false);
+
+        } else if (keyCode == VK_LEFT) {
+            p1.setMoveUp(false);
+            p1.setMoveDown(false);
+            p1.setMoveRight(false);
+            p1.setMoveLeft(true);
+
+        }
     }
+
     public void keyReleased(){
     }
 }

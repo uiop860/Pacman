@@ -10,73 +10,96 @@ import static java.awt.event.KeyEvent.*;
 public class Player extends Entity{
 
     PApplet p;
-    public int playerX=getPlayerXPos();
-    public int playerY=getPlayerYPos();;
+    public int playerPositionX=getPlayerXPos();
+    public int playerPositionY=getPlayerYPos();;
     int direction = 1;
     int direction2 = 0;
-    int x = 0;
-    int moveX = 0;
-    int moveY = 0;
+    int playerGridPositionX;
+    int playerGridPositionY;
+    int points = 0;
+
+
+    boolean moveLeft = false;
+    boolean moveRight = false;
+    boolean moveUp = false;
+    boolean moveDown = true;
 
     public Player(PApplet p) {
         this.p = p;
     }
 
     public void renderPlayer() {
-        Grid grid = new Grid(722,798,38,this.p);
-        grid.loadMap();
         p.shapeMode(p.CENTER);
         p.fill(255, 255, 0);
         renderP1();
     }
 
-    public void move()
-    {
-    playerX+=moveX;
-    playerY+=moveY;
+    public void checkPlayerPosition(){
+        playerGridPositionX();
+        playerGridPositionY();
+        /*System.out.print(playerPositionX+ " - ");
+        System.out.print(playerPositionY);
+        System.out.print(" - " + playerGridPositionX + " - " + playerGridPositionY);
+        System.out.println(" - " +points);
+        System.out.println();*/
     }
+
+    public void playerGridPositionX() {
+
+        for (int x = 0; x < Grid.grid.length; x++) {
+            if(((playerPositionX-(Brain.r/2))/Brain.r) == x && playerPositionX % 38 == 19){
+                playerGridPositionX = x;
+                break;
+            }
+        }
+    }
+    public void playerGridPositionY(){
+
+        for (int y = 0; y < Grid.grid[0].length; y++ ) {
+            if(((playerPositionY-(Brain.r/2))/Brain.r) == y && playerPositionY % 38 == 19) {
+                playerGridPositionY = y;
+                break;
+            }
+        }
+    }
+
 
     //CONTROLS
     public void playerMovement() {
-        if (p.keyCode == VK_RIGHT) {
-            x = 1;
-        } else if (p.keyCode == VK_LEFT) {
-            x = 2;
-        } else if (p.keyCode == VK_UP) {
-            x = 3;
-        } else if (p.keyCode == VK_DOWN) {
-            x = 4;
+
+        int p1XPlus = playerGridPositionX + 1;
+        int p1XMinus = playerGridPositionX - 1;
+        int p1YPlus = playerGridPositionY + 1;
+        int p1YMinus = playerGridPositionY - 1;
+
+        if (moveRight && Grid.grid[p1XPlus][playerGridPositionY] != 1) {
+            setPlayerXPos(playerPositionX++);
+            direction = 1;
+            direction2 = 0;
+        } else if (moveLeft && Grid.grid[p1XMinus][playerGridPositionY] != 1) {
+            setPlayerXPos(playerPositionX--);
+            direction = -1;
+            direction2 = 0;
+        } else if (moveUp  && Grid.grid[playerGridPositionX][p1YMinus] != 1) {
+            setPlayerYPos(playerPositionY--);
+            direction = 0;
+            direction2 = -1;
+        } else if (moveDown && Grid.grid[playerGridPositionX][p1YPlus] != 1) {
+            setPlayerYPos(playerPositionY++);
+            direction = 0;
+            direction2 = 1;
         }
+    }
 
-        switch (x) {
-            case 1:
-                //right
-                setPlayerXPos(playerX++);
-                direction = 1;
-                direction2 = 0;
-                break;
-            case 2:
-                //left
-                setPlayerXPos(playerX--);
-                direction = -1;
-                direction2 = 0;
-                break;
+    public void checkIfPlayerIsOnFood(){
 
-            case 3:
-                //up
-                setPlayerYPos(playerY--);
-                direction = 0;
-                direction2 = -1;
-                break;
-            case 4:
-                //down
-                setPlayerYPos(playerY++);
-                direction = 0;
-                direction2 = 1;
-                break;
-            default:
-                x = 0;
-                break;
+        if(Grid.grid[playerGridPositionX][playerGridPositionY] == 2){
+            Grid.grid[playerGridPositionX][playerGridPositionY] = 0;
+            points++;
+        } else if(Grid.grid[playerGridPositionX][playerGridPositionY] == 3){
+            
+            Grid.grid[playerGridPositionX][playerGridPositionY] = 0;
+
         }
     }
 
@@ -107,6 +130,22 @@ public class Player extends Entity{
         playerRect.setLocation(getPlayerXPos(),getPlayerYPos());
         playerRect.setSize(34,42);
         return playerRect;
+    }
+
+    public void setMoveLeft(boolean moveLeft) {
+        this.moveLeft = moveLeft;
+    }
+
+    public void setMoveRight(boolean moveRight) {
+        this.moveRight = moveRight;
+    }
+
+    public void setMoveUp(boolean moveUp) {
+        this.moveUp = moveUp;
+    }
+
+    public void setMoveDown(boolean moveDown) {
+        this.moveDown = moveDown;
     }
 }
 

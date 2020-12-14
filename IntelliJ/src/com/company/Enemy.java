@@ -10,13 +10,14 @@ public class Enemy extends Entity
 {
     PApplet p;
 
-    private boolean fleeMode = false;
-    private double defaultSpeed = 0.8;
-    private double speed = 0;
-    private double fleeSpeed = 0.6;
+    public static boolean fleeMode = false;
+    private static double defaultSpeed = 0.8;
+    private static double speed = 0;
+    private static double fleeSpeed = 0.6;
     private int yPos;
     private int xPos;
     private PImage blue, red, brown, pink;
+    int frameCounter = 0;
 
 
     public Enemy(PApplet p)
@@ -50,19 +51,19 @@ public class Enemy extends Entity
     }
 
 
-    public void changeMode()
+     static public void changeMode()
     {
         if(!fleeMode)
         {
-            fleeMode = true;
             speed = fleeSpeed;
-
+            fleeMode = true;
 
         }
         else if(fleeMode)
         {
-            fleeMode = false;
             speed = defaultSpeed;
+            fleeMode = false;
+
         }
     }
 

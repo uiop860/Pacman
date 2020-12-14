@@ -4,8 +4,8 @@ public class Entity
 {
 
 
-    private int playerXPos=380;
-    private int playerYPos=500;
+    private int playerXPos=57;
+    private int playerYPos=57;
 
     private int enemyRedXPos = 661;
     private int enemyRedYPos = 78;

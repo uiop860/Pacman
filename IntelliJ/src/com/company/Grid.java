@@ -13,7 +13,7 @@ public class Grid extends PApplet {
     public static int gridX =19;
     public static int gridY =21;
 
-    private int[][] grid = new int[gridX][gridY];
+    static int[][] grid = new int[gridX][gridY];
 
     public Grid(int screenSizeX, int screenSizeY, int r, PApplet p) {
         this.screenSizeX = screenSizeX;
@@ -137,7 +137,7 @@ public class Grid extends PApplet {
                 } else if(grid[x][y] == foodBox){
                     p.fill(0,0,0);
                     p.rect(x * r, y * r, r, r);
-                    p.fill(255,255,0);
+                    p.fill(255);
                     p.ellipseMode(p.CENTER);
                     p.ellipse((x*r)+(r/2),(y*r)+(r/2),r/4,r/4);
                 }else if(grid[x][y] == powerUpBox){
