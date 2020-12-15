@@ -14,10 +14,10 @@ public class Brain extends PApplet {
     static int r = 38;
     Grid grid = new Grid(screenSizeX,screenSizeY,r,this);
     Player p1 = new Player(this);
-    Enemy red = new Enemy(this);
-    Enemy blue = new Enemy(this);
-    Enemy green = new Enemy(this);
-    Enemy pink = new Enemy(this);
+    Enemy red = new Enemy(this, 209,57);
+    Enemy yellow = new Enemy(this,361,399);
+    Enemy green = new Enemy(this,361,399);
+    Enemy pink = new Enemy(this, 361,399);
 
 
 
@@ -29,6 +29,10 @@ public class Brain extends PApplet {
         grid.gridCreator();
         grid.loadMap();
         p1.checkPlayerPosition();
+        red.checkEnemyGridPosition();
+        yellow.checkEnemyGridPosition();
+        green.checkEnemyGridPosition();
+        pink.checkEnemyGridPosition();
         frameRate(60);
 
     }
@@ -40,16 +44,24 @@ public class Brain extends PApplet {
         p1.checkPlayerPosition();
         p1.playerMovement();
         red.drawRed();
-        blue.drawBlue();
+        red.checkEnemyGridPosition();
+        red.enemyMovement();
+        yellow.drawYellow();
+        yellow.checkEnemyGridPosition();
+        yellow.enemyMovement();
         green.drawGreen();
+        green.checkEnemyGridPosition();
+        green.enemyMovement();
         pink.drawPink();
+        pink.checkEnemyGridPosition();
+        pink.enemyMovement();
 
-        if (p1.playerGetBounds().intersects(pink.pinkEnemyGetBounds()))
+        /*if (p1.playerGetBounds().intersects(pink.pinkEnemyGetBounds()))
         {
             System.out.println("intersection player pink");
         }
 
-        if (p1.playerGetBounds().intersects(blue.blueEnemyGetBounds()))
+        if (p1.playerGetBounds().intersects(yellow.yellowEnemyGetBounds()))
         {
             System.out.println("intersection player blue");
         }
@@ -62,7 +74,7 @@ public class Brain extends PApplet {
         if (p1.playerGetBounds().intersects(red.redEnemyGetBounds()))
         {
             System.out.println("intersection player red");
-        }
+        }*/
 
     }
 

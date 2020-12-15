@@ -2,7 +2,6 @@ package com.company;
 
 import java.awt.*;
 
-import javafx.geometry.Bounds;
 import processing.core.PApplet;
 import processing.core.PImage;
 
@@ -16,38 +15,48 @@ public class Enemy extends Entity
     private static double fleeSpeed = 0.6;
     private int yPos;
     private int xPos;
-    private PImage blue, red, brown, pink;
+    private PImage red;
     int frameCounter = 0;
+    int enemyPosX;
+    int enemyPosY;
+    int enemyGridPosX;
+    int enemyGridPosY;
 
 
-    public Enemy(PApplet p)
+    public Enemy(PApplet p, int enemyPosX, int enemyPosY)
     {
         this.p = p;
+        this.enemyPosX = enemyPosX;
+        this.enemyPosY = enemyPosY;
     }
 
 
     public void drawGreen()
     {
         red = p.loadImage("C:\\Users\\Olive\\Documents\\GitHub\\Pacman\\IntelliJ\\src\\green.png");
-        p.image(red,getEnemyGreenXPos(),getEnemyGreenYPos());
+        p.imageMode(p.CENTER);
+        p.image(red,enemyPosX,enemyPosY);
     }
 
     public void drawPink()
     {
         red = p.loadImage("C:\\Users\\Olive\\Documents\\GitHub\\Pacman\\IntelliJ\\src\\pink.png");
-        p.image(red,getEnemyPinkXPos(),getEnemyPinkYPos());
+        p.imageMode(p.CENTER);
+        p.image(red,enemyPosX,enemyPosY);
     }
 
-    public void drawBlue()
+    public void drawYellow()
     {
-        red = p.loadImage("C:\\Users\\Olive\\Documents\\GitHub\\Pacman\\IntelliJ\\src\\blue.png");
-        p.image(red,getEnemyBlueXPos(),getEnemyBlueYPos());
+        red = p.loadImage("C:\\Users\\Olive\\Documents\\GitHub\\Pacman\\IntelliJ\\src\\yellow.png");
+        p.imageMode(p.CENTER);
+        p.image(red,enemyPosX,enemyPosY);
     }
 
     public void drawRed()
     {
         red = p.loadImage("C:\\Users\\Olive\\Documents\\GitHub\\Pacman\\IntelliJ\\src\\red.png");
-        p.image(red,getEnemyRedXPos(),getEnemyRedYPos());
+        p.imageMode(p.CENTER);
+        p.image(red,enemyPosX,enemyPosY);
     }
 
 
@@ -62,31 +71,82 @@ public class Enemy extends Entity
         }
     }
 
+    public void enemyMovement(){
+
+        int p1XPlus = enemyGridPosX + 1;
+        int p1XMinus = enemyGridPosX - 1;
+        int p1YPlus = enemyGridPosY + 1;
+        int p1YMinus = enemyGridPosY - 1;
+
+        if(getPlayerXPos() > enemyPosX && Grid.grid[p1XPlus][enemyGridPosY] != 1){
+            //move right
+            enemyPosX++;
+
+        } else if(getPlayerXPos() < enemyPosX && Grid.grid[p1XMinus][enemyGridPosY] != 1){
+            // move left
+            enemyPosX--;
+
+        } else if(getPlayerYPos() > enemyPosY && Grid.grid[enemyGridPosX][p1YPlus] != 1){
+            // move down
+            enemyPosY++;
+
+        } else if (getPlayerYPos() < enemyPosY && Grid.grid[enemyGridPosX][p1YMinus] != 1){
+            // move up
+            enemyPosY--;
+
+        }
+    }
+
+    public void checkEnemyGridPosition(){
+        enemyGridPositionX();
+        enemyGridPositionY();
+        System.out.println(enemyGridPosX + " - " + enemyGridPosY);
+
+    }
+    public void enemyGridPositionX() {
+
+        for (int x = 0; x < Grid.grid.length; x++) {
+            if(((enemyPosX-(Brain.r/2))/Brain.r) == x && enemyPosX % 38 == 19){
+                enemyGridPosX = x;
+                break;
+            }
+        }
+    }
+    public void enemyGridPositionY(){
+
+        for (int y = 0; y < Grid.grid[0].length; y++ ) {
+            if(((enemyPosY-(Brain.r/2))/Brain.r) == y && enemyPosY % 38 == 19) {
+                enemyGridPosY = y;
+                break;
+            }
+        }
+    }
+
     public Rectangle redEnemyGetBounds() {
         Rectangle redEnemy = new Rectangle();
-        redEnemy.setLocation(getEnemyRedXPos(),getEnemyRedYPos());
-        redEnemy.setSize(34,42);
+        redEnemy.setLocation(enemyPosX-16,enemyPosY-20);
+        redEnemy.setSize(32,40);
         return redEnemy;
     }
 
-    public Rectangle blueEnemyGetBounds() {
-        Rectangle blueEnemy = new Rectangle();
-        blueEnemy.setLocation(getEnemyBlueXPos(),getEnemyBlueYPos());
-        blueEnemy.setSize(34,42);
-        return blueEnemy;
+    public Rectangle yellowEnemyGetBounds() {
+        Rectangle yellowEnemy = new Rectangle();
+        yellowEnemy.setLocation(enemyPosX-16,enemyPosY-20);
+        yellowEnemy.setSize(32,40);
+        return yellowEnemy;
     }
 
     public Rectangle greenEnemyGetBounds() {
         Rectangle greenEnemy = new Rectangle();
-        greenEnemy.setLocation(getEnemyGreenXPos(),getEnemyGreenYPos());
-        greenEnemy.setSize(34,42);
+        greenEnemy.setLocation(enemyPosX-16,enemyPosY-20);
+        greenEnemy.setSize(32,40);
         return greenEnemy;
     }
 
     public Rectangle pinkEnemyGetBounds() {
         Rectangle pinkEnemy = new Rectangle();
-        pinkEnemy.setLocation(getEnemyPinkXPos(),getEnemyPinkYPos());
-        pinkEnemy.setSize(34,42);
+        pinkEnemy.setLocation(enemyPosX-16,enemyPosY-20);
+        pinkEnemy.setSize(32,40);
         return pinkEnemy;
     }
 }

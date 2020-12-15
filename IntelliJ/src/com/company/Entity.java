@@ -7,8 +7,8 @@ public class Entity
     private int playerXPos=57;
     private int playerYPos=57;
 
-    private int enemyRedXPos = 661;
-    private int enemyRedYPos = 78;
+    private int enemyRedXPos = 95; // 661
+    private int enemyRedYPos = 57; // 78
 
     private int enemyBlueXPos = 421;
     private int enemyBlueYPos = 178;
@@ -18,6 +18,7 @@ public class Entity
 
     private int enemyPinkXPos = 501;
     private int enemyPinkYPos = 678;
+
 
 
 
@@ -47,7 +48,7 @@ public class Entity
         return enemyRedXPos;
     }
 
-    public void setEnemyRedXPos(int enemyRedXPos)
+    public void setEnemyRedXPos()
     {
         this.enemyRedXPos = enemyRedXPos;
     }
@@ -57,9 +58,9 @@ public class Entity
         return enemyRedYPos;
     }
 
-    public void setEnemyRedYPos(int enemyRedYPos)
+    public void setEnemyRedYPos()
     {
-        this.enemyRedYPos = enemyRedYPos;
+        this.enemyRedYPos = enemyRedYPos++;
     }
 
     public int getEnemyBlueXPos()
