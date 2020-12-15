@@ -11,7 +11,7 @@ public class Player extends Entity{
 
     PApplet p;
     public int playerPositionX=getPlayerXPos();
-    public int playerPositionY=getPlayerYPos();;
+    public int playerPositionY=getPlayerYPos();
     int direction = 1;
     int direction2 = 0;
     int playerGridPositionX;
@@ -22,7 +22,7 @@ public class Player extends Entity{
     boolean moveLeft = false;
     boolean moveRight = false;
     boolean moveUp = false;
-    boolean moveDown = true;
+    boolean moveDown = false;
 
     public Player(PApplet p) {
         this.p = p;

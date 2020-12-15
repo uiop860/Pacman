@@ -51,48 +51,39 @@ public class Enemy extends Entity
     }
 
 
-     static public void changeMode()
-    {
-        if(!fleeMode)
-        {
+     static public void changeMode() {
+        if(!fleeMode) {
             speed = fleeSpeed;
             fleeMode = true;
-
         }
-        else if(fleeMode)
-        {
+        else if(fleeMode) {
             speed = defaultSpeed;
             fleeMode = false;
-
         }
     }
 
-    public Rectangle redEnemyGetBounds()
-    {
+    public Rectangle redEnemyGetBounds() {
         Rectangle redEnemy = new Rectangle();
         redEnemy.setLocation(getEnemyRedXPos(),getEnemyRedYPos());
         redEnemy.setSize(34,42);
         return redEnemy;
     }
 
-    public Rectangle blueEnemyGetBounds()
-    {
+    public Rectangle blueEnemyGetBounds() {
         Rectangle blueEnemy = new Rectangle();
         blueEnemy.setLocation(getEnemyBlueXPos(),getEnemyBlueYPos());
         blueEnemy.setSize(34,42);
         return blueEnemy;
     }
 
-    public Rectangle greenEnemyGetBounds()
-    {
+    public Rectangle greenEnemyGetBounds() {
         Rectangle greenEnemy = new Rectangle();
         greenEnemy.setLocation(getEnemyGreenXPos(),getEnemyGreenYPos());
         greenEnemy.setSize(34,42);
         return greenEnemy;
     }
 
-    public Rectangle pinkEnemyGetBounds()
-    {
+    public Rectangle pinkEnemyGetBounds() {
         Rectangle pinkEnemy = new Rectangle();
         pinkEnemy.setLocation(getEnemyPinkXPos(),getEnemyPinkYPos());
         pinkEnemy.setSize(34,42);
