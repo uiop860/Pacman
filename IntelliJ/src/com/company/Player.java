@@ -10,8 +10,8 @@ import static java.awt.event.KeyEvent.*;
 public class Player extends Entity{
 
     PApplet p;
-    public int playerPositionX=getPlayerXPos();
-    public int playerPositionY=getPlayerYPos();
+    public static int playerPositionX=665;
+    public static int playerPositionY=57;
     int direction = 1;
     int direction2 = 0;
     int playerGridPositionX;
@@ -73,19 +73,19 @@ public class Player extends Entity{
         int p1YMinus = playerGridPositionY - 1;
 
         if (moveRight && Grid.grid[p1XPlus][playerGridPositionY] != 1) {
-            setPlayerXPos(playerPositionX++);
+            playerPositionX++;
             direction = 1;
             direction2 = 0;
         } else if (moveLeft && Grid.grid[p1XMinus][playerGridPositionY] != 1) {
-            setPlayerXPos(playerPositionX--);
+            playerPositionX--;
             direction = -1;
             direction2 = 0;
         } else if (moveUp  && Grid.grid[playerGridPositionX][p1YMinus] != 1) {
-            setPlayerYPos(playerPositionY--);
+            playerPositionY--;
             direction = 0;
             direction2 = -1;
         } else if (moveDown && Grid.grid[playerGridPositionX][p1YPlus] != 1) {
-            setPlayerYPos(playerPositionY++);
+            playerPositionY++;
             direction = 0;
             direction2 = 1;
         }
@@ -108,7 +108,7 @@ public class Player extends Entity{
             for (int j = -1; j < 2; j++) {
                 p.fill(255,255,0);
                 p.pushMatrix();
-                p.translate(getPlayerXPos() + (i * 722), getPlayerYPos() + (j * 798));
+                p.translate(playerPositionX + (i * 722), playerPositionY + (j * 798));
                 if (direction == -1) {
                     p.rotate(p.PI);
                 }
@@ -118,7 +118,7 @@ public class Player extends Entity{
                 if (direction2 == -1) {
                     p.rotate(p.PI + p.HALF_PI);
                 }
-                p.arc(0, 0, 36, 36, p.radians(45), p.radians(315), 3);
+                p.arc(0, 0, 36, 36,p.map((p.millis() % 500), 0, 500, 0, (float) 0.75), p.map((p.millis() % 500), 0, 500, p.TWO_PI, (float) 5.45) );
                 p.popMatrix();
             }
         }
@@ -146,6 +146,14 @@ public class Player extends Entity{
 
     public void setMoveDown(boolean moveDown) {
         this.moveDown = moveDown;
+    }
+
+    public static int getPlayerPositionX() {
+        return playerPositionX;
+    }
+
+    public static int getPlayerPositionY() {
+        return playerPositionY;
     }
 }
 

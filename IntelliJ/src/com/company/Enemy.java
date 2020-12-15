@@ -11,16 +11,13 @@ public class Enemy extends Entity
 
     public static boolean fleeMode = false;
     private static double defaultSpeed = 0.8;
-    private static double speed = 0;
     private static double fleeSpeed = 0.6;
-    private int yPos;
-    private int xPos;
     private PImage red;
-    int frameCounter = 0;
-    int enemyPosX;
-    int enemyPosY;
-    int enemyGridPosX;
-    int enemyGridPosY;
+    private int enemyPosX;
+    private int enemyPosY;
+    private int enemyGridPosX;
+    private int enemyGridPosY;
+
 
 
     public Enemy(PApplet p, int enemyPosX, int enemyPosY)
@@ -78,24 +75,39 @@ public class Enemy extends Entity
         int p1YPlus = enemyGridPosY + 1;
         int p1YMinus = enemyGridPosY - 1;
 
-        if(getPlayerXPos() > enemyPosX && Grid.grid[p1XPlus][enemyGridPosY] != 1){
+        int deltaXFromPlayer = Player.getPlayerPositionX() - enemyPosX;
+        int deltaYFromPlayer = Player.getPlayerPositionY() - enemyPosY;
+        double distanceFromPlayer = Math.sqrt(deltaXFromPlayer*deltaXFromPlayer + deltaYFromPlayer * deltaYFromPlayer);
+
+        if(deltaXFromPlayer > 0 && Grid.grid[p1XPlus][enemyGridPosY] != 1) {
             //move right
-            enemyPosX++;
-
-        } else if(getPlayerXPos() < enemyPosX && Grid.grid[p1XMinus][enemyGridPosY] != 1){
+                enemyPosX += 1;
+        }else if(deltaXFromPlayer < 0 && Grid.grid[p1XMinus][enemyGridPosY] != 1){
             // move left
-            enemyPosX--;
+            enemyPosX-=1;
 
-        } else if(getPlayerYPos() > enemyPosY && Grid.grid[enemyGridPosX][p1YPlus] != 1){
+        } else if(deltaYFromPlayer > 0 && Grid.grid[enemyGridPosX][p1YPlus] != 1){
             // move down
-            enemyPosY++;
+            enemyPosY+=1;
 
-        } else if (getPlayerYPos() < enemyPosY && Grid.grid[enemyGridPosX][p1YMinus] != 1){
+        } else if (deltaYFromPlayer < 0 && Grid.grid[enemyGridPosX][p1YMinus] != 1){
             // move up
-            enemyPosY--;
+            enemyPosY-=1;
 
+        } else if(Grid.grid[p1XPlus][enemyGridPosY] == 1){
+            if(Grid.grid[enemyGridPosX][p1YPlus] != 1){
+                // down
+                enemyPosY+=1;
+            }else if(Grid.grid[p1XMinus][enemyGridPosY] != 1){
+                // left
+                enemyPosX-=1;
+            } else if(Grid.grid[enemyGridPosX][p1YMinus] != 1){
+                // up
+                enemyPosY-=1;
+            }
         }
     }
+
 
     public void checkEnemyGridPosition(){
         enemyGridPositionX();
