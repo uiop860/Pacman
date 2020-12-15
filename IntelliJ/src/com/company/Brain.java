@@ -39,6 +39,7 @@ public class Brain extends PApplet {
 
     public void draw(){
         grid.gridPopulator();
+        Enemy.changeMode();
         p1.renderPlayer();
         p1.checkIfPlayerIsOnFood();
         p1.checkPlayerPosition();

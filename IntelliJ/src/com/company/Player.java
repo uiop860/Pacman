@@ -98,6 +98,7 @@ public class Player extends Entity{
             points++;
         } else if(Grid.grid[playerGridPositionX][playerGridPositionY] == 3){
 
+            Enemy.ifMode = true;
             Grid.grid[playerGridPositionX][playerGridPositionY] = 0;
 
         }

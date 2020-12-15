@@ -22,6 +22,7 @@ public class Entity
 
 
 
+
     public int getPlayerXPos()
     {
         return playerXPos;
