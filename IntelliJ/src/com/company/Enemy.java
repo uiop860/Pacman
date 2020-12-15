@@ -164,7 +164,7 @@ public class Enemy extends Entity
     {
         enemyGridPositionX();
         enemyGridPositionY();
-        System.out.println(enemyGridPosX + " - " + enemyGridPosY);
+
 
     }
 

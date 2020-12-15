@@ -14,10 +14,10 @@ public class Brain extends PApplet {
     static int r = 38;
     Grid grid = new Grid(screenSizeX,screenSizeY,r,this);
     Player p1 = new Player(this);
-    Enemy red = new Enemy(this, 209,57);
-    Enemy yellow = new Enemy(this,361,399);
-    Enemy green = new Enemy(this,361,399);
-    Enemy pink = new Enemy(this, 361,399);
+    Enemy red = new Enemy(this, 665,57);
+    Enemy yellow = new Enemy(this,57,741);
+    Enemy green = new Enemy(this,665,741);
+    Enemy pink = new Enemy(this, 57,57);
 
 
 

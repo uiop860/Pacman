@@ -10,8 +10,8 @@ import static java.awt.event.KeyEvent.*;
 public class Player extends Entity{
 
     PApplet p;
-    public static int playerPositionX=665;
-    public static int playerPositionY=57;
+    public static int playerPositionX=361;
+    public static int playerPositionY=399;
     int direction = 1;
     int direction2 = 0;
     int playerGridPositionX;
